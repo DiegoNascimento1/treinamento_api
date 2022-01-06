@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -58,32 +58,15 @@ $route['translate_uri_dashes'] = FALSE;
 * - Rotas amigáveis para acesso pelo aplicativo
 */
 
-// DASHBOARD
-$route['api/dashboard']['GET']                  = 'dashboard/getDashboard';
-$route['api/dashboard/detalhe/(:any)']['GET']   = 'dashboard/getDetalharStatus/$1';
-$route['api/dashboard']['POST']                 = 'dashboard/postDashboard';
-// $route['api/dashboard']['PUT']          = 'api/dashboard/putDashboard';
-// $route['api/dashboard']['DELETE']       = 'api/dashboard/deleteDashboard';
-
-// OPERAÇÕES
-$route['api/operacao']['GET']           = 'operacao/getOperacao'; 
-$route['api/operacao/(:any)']['GET']    = 'operacao/getOperacao/$1';
-$route['api/operacao/detalhe/']['GET']    = 'operacao/getOperacaoDetalhe/';
-$route['api/operacao/detalhe/(:any)']['GET']    = 'operacao/getOperacaoDetalhe/$1';
-
-//EMPRESAS
-$route['api/empresa']['GET']            = 'empresa/getEmpresa'; 
-$route['api/empresa/(:any)']['GET']     = 'empresa/getEmpresa/$1'; 
-
-//NOTIFICAÇÃO
-$route['api/notificacao']['GET']            = 'notificacao/getNotificacao'; 
-// $route['api/notificacao/(:any)']['GET']     = 'api/notificacao/getNotificacao/$1'; getOperacaoDetalhe
-
 // PASS
 $route['pass/(:any)']['GET']    = 'pass/index/$1';
 
 // USUARIOS
-$route['usuarios']['GET']                   = 'usuarios/index';
-$route['usuarios']['POST']                  = 'usuarios/postUser';
+$route['usuarios']['GET']                   = 'usuarios/getUsers';
+$route['usuarios/(:any)']['GET']            = 'usuarios/getUsers/$1';
+$route['usuarios/(:num)']['POST']           = 'usuarios/postUsers/$1';
+$route['usuarios/(:num)']['PUT']            = 'usuarios/putUsers/$1';
+$route['usuarios/(:num)']['DELETE']         = 'usuarios/deleteUsers/$1';
+
 $route['usuarios/nome']['GET']              = 'usuarios/getName';
 $route['usuarios/nome/(:any)']['GET']       = 'usuarios/getName/$1';

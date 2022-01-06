@@ -19,15 +19,15 @@ class Usuarios extends CI_Controller {
 	 *
 	 * @return  [array]         [return json]
 	 */
-	public function index()
-	{
-		http_response_code(200);
-		$dados = [
-			'message' => 'Usuarios',
-			'status' => '1'
-		];
-		echo json_encode($dados);
-	}
+	// public function index()
+	// {
+	// 	$response = [
+	// 		'status' => false,
+	// 		'message' => 'Nessecita que sejam passados todos os parametros!'
+	// 	];
+	// 	echo json_output("403", $response);
+
+	// }
 
 	/**
 	 * [getUsers description]
@@ -73,5 +73,32 @@ class Usuarios extends CI_Controller {
 		echo json_output("200", $response);
 	}
 	
+	/**
+	 * [postUsers description]
+	 *
+	 * @return  [type]  [return description]
+	 */
+	public function putUsers($id)
+	{
+		mDebug($id);
+		$body = json_decode(file_get_contents("php://input"),1);
+		
+		$response = $this->Model->insert($body);
+		echo json_output("200", $response);
+	}
+	
+	/**
+	 * [postUsers description]
+	 *
+	 * @return  [type]  [return description]
+	 */
+	public function deleteUsers($id)
+	{
+		mDebug($id);
+		$body = json_decode(file_get_contents("php://input"),1);
+		
+		$response = $this->Model->insert($body);
+		echo json_output("200", $response);
+	}
 	
 }
